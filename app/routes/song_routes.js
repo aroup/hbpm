@@ -3,7 +3,7 @@ var ObjectID = require('mongodb').ObjectID;
 module.exports = function(app, db) {
   app.get('/songs', (req, res) => {
     const details = { played: false };
-    db.collection('songs').findOne(details, (err, item) => {
+    db.collection('songs').findOne(details, (err, song) => {
       if (err) {
         res.send({ error: 'An error has occurred' });
       } else {
